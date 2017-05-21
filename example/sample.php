@@ -1,46 +1,14 @@
+<?php include '../readmore-function.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title></title>
-		<script type="text/javascript" src="jquery-3.2.1.js"></script>
-		<style>
-			#more_text {
-			  height: 60px;
-			  position: relative;
-			  overflow: hidden;
-			  transition:all ease 0.5s !important;
-			  -moz-transition:all ease 0.5s !important;
-			  -webkit-transition:all ease 0.5s !important;
-			  -o-transition:all ease 0.5s !important;
-			}
-
-			#more_text .btn_read_more{
-				position: absolute; 
-				bottom: 0; 
-				left: 0;
-				width: 100%; 
-				text-align: center; 
-				margin: 0; padding: 10px 0; 
-					
-				/* "transparent" only works here because == rgba(0,0,0,0) */
-				background-image: linear-gradient(to bottom, transparent, white);
-			}
-			.btn{
-				color: #FFF;
-				background-color: blue;
-				border: 1px solid #000;
-				height: 40px;
-				line-height: 40px;
-				width: 300px;
-				margin: 0 auto;
-				cursor: pointer;
-			}
-			
-		</style>
+		<script type="text/javascript" src="../jquery-3.2.1.js"></script>
 	</head>
 	<body>
 	<?php
-		$data = 'Go-Jek, the motorbike on-demand startup that is battling Uber and Grab in Indonesia, has closed a new round of $1.2 billion led by Chinese internet giant Tencent, two sources close the company told TechCrunch. The deal, which we understand was signed last week, values the company at $3 billion post money. It is expected to be officially announced “soon.”
+
+	$text = 'Go-Jek, the motorbike on-demand startup that is battling Uber and Grab in Indonesia, has closed a new round of $1.2 billion led by Chinese internet giant Tencent, two sources close the company told TechCrunch. The deal, which we understand was signed last week, values the company at $3 billion post money. It is expected to be officially announced “soon.”
 
 			Go-Jek declined to comment. Tencent did not respond to requests for comment.
 
@@ -56,30 +24,10 @@
 			Grab is making a big push to win the opportunity. The company recently pledged to invest $700 million into its Indonesia operations, which includes building out its team, localizing its tech and making investments. Grab recently snapped up Kudo Payments in an undisclosed deal which sources told us is in the region of $80 million to $100 million. The acquisition is designed to boost Grab’s own payment platform, GrabPay, which is following GoPay’s footsteps and taking Grab into services beyond just car rides.
 			The new Go-Jek deal also marks Tencent’s first investment in Indonesia, and the latest in a flurry of startup deals from the company, which is best known for operating China’s top messaging platform, WeChat. Tencent bought five percent of Tesla in March for just over $2 billion, and it has since done deals with Chinese streaming service Kuaishou and cross-border payment provide Airwallex.'; 
 
-			$text	= explode('<!--PAGEBREAK--!>',$data); 
-			$count 	= count($text);
-			if(!$count){
-				echo $data;
-			}elseif($count==2){
-				$result = '<div id="visible_text">'.$text[0].'</div><div id="more_text">'.$text[1].'<div class="btn_read_more" id="btn_read_more"><a href="#" onclick="readmore();"><div class="btn">READ MORE</div></a></div></div>';
-				echo $result;
-			}else{
-				$result = '<div id="visible_text">'.$text[0].'<div><div id="more_text">';
-				for($i=1; $i<$count; $i++){
-					$result .= $text[$i];
-				}
-				$result .= '<div class="btn_read_more" id="btn_read_more"><a href="#" onclick="readmore();"><div class="btn">READ MORE</div></a></div></div>';
-				echo $result;
-			}
+	$break 	= new readmore;
+	$string = $break->breakthis($text);
+	echo $string;
 ?>
-
-<script>
-	function readmore(){
-		$('.btn_read_more').hide();
-		$('#more_text').css({"height": "100%", "-webkit-transition":"all ease 5s", "transition": "all ease 5s", "-moz-transition":"all ease 5s", "-o-transition":"all ease 5s"})
-	}
-</script>
 
 </body>
 </html>
-
