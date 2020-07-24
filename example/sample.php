@@ -24,7 +24,7 @@
 			Grab is making a big push to win the opportunity. The company recently pledged to invest $700 million into its Indonesia operations, which includes building out its team, localizing its tech and making investments. Grab recently snapped up Kudo Payments in an undisclosed deal which sources told us is in the region of $80 million to $100 million. The acquisition is designed to boost Grab’s own payment platform, GrabPay, which is following GoPay’s footsteps and taking Grab into services beyond just car rides.
 			The new Go-Jek deal also marks Tencent’s first investment in Indonesia, and the latest in a flurry of startup deals from the company, which is best known for operating China’s top messaging platform, WeChat. Tencent bought five percent of Tesla in March for just over $2 billion, and it has since done deals with Chinese streaming service Kuaishou and cross-border payment provide Airwallex.'; 
 
-	$break 	= new readmore;
+	$break 	= new Readmore();
 	$string = $break->breakthis($text);
 	echo $string;
 ?>

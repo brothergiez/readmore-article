@@ -1,5 +1,5 @@
 <?php
-	class readmore{
+	class Readmore{
 		function breakthis($string){
 			$text	= explode('<!--PAGEBREAK--!>',$string); 
 			$count 	= count($text);
